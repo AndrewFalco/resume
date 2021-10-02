@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export let wpSch = yup.object().shape({
+export const WpSch = yup.object().shape({
     startDate: yup.date().default(function () {
         return new Date();
       }).required(),
@@ -13,26 +13,26 @@ export let wpSch = yup.object().shape({
     cases: yup.string().optional(),
 });
 
-export let langSch = yup.object().shape({
+export const LangSch = yup.object().shape({
     language: yup.string().required(),
     level: yup.string().required(),
 });
 
-export let schoolSch = yup.object().shape({
+export const SchoolSch = yup.object().shape({
     name: yup.string().required(),
     faculty: yup.string().required(),
     speciality: yup.string().required(),
     endYear: yup.number().positive().integer().required(),
 });
 
-export let eduSch = yup.object().shape({
+export const EduSch = yup.object().shape({
     level: yup.string().required(),
     language: yup.string().required(),
-    otherLanguage: yup.array().of(langSch).optional(),
-    placeOfStudy: yup.array().of(schoolSch).required(),
+    otherLanguage: yup.array().of(LangSch).optional(),
+    placeOfStudy: yup.array().of(SchoolSch).required(),
 })
 
-export let mainSch = yup.object().shape({
+export const MainSch = yup.object().shape({
   name: yup.string().required(),
   lastName: yup.string().required(),
   patronymic: yup.string().optional(),

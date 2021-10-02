@@ -15,7 +15,7 @@ export const defaultRes: IResume = {
   salary: 0,
   currency: "rub",
   about: "",
-  experience: true,
+  hasExp: true,
   workplace: [
     {
       startDate: new Date(),

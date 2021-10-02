@@ -12,7 +12,7 @@ export type IResume = {
     salary: number;
     currency: string;
     about?: string;
-    experience: boolean;
+    hasExp: boolean;
     workplace?: IWorkplace[];
     education: IEducation[];
 

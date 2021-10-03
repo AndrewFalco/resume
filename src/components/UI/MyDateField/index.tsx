@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 
 interface IProps {
@@ -11,6 +11,7 @@ interface IProps {
 
 const MyDateField = (props: IProps) => {
   const {property, alias, register, errors, isRequired} = props;
+  const [date, setDate] = useState(new Date())
   return (
     <div>
       <TextField

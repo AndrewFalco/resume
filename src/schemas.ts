@@ -4,7 +4,7 @@ export const WpSch = yup.object().shape({
     startDate: yup.date().default(function () {
         return new Date();
       }).required(),
-    endDate: yup.date().default(function () {
+    endDate: yup.mixed().default(function () {
         return new Date();
       }).optional(),
     toPresent: yup.boolean().optional(),
@@ -12,6 +12,10 @@ export const WpSch = yup.object().shape({
     position: yup.string().required(),
     cases: yup.string().optional(),
 });
+
+export const Page2Sch = yup.object().shape({
+  hasExp: yup.string().required(),
+})
 
 export const LangSch = yup.object().shape({
     language: yup.string().required(),

@@ -47,3 +47,37 @@ export const defaultRes: IResume = {
     },
   ],
 };
+
+export const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+  {
+    value: 'RUB',
+    label: '₽'
+  }
+];
+
+export const genders = [
+  {
+    value: 'Male',
+    label: 'Муж'
+  },
+  {
+    value: 'Female',
+    label: 'Жен'
+  }
+]

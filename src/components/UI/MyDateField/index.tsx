@@ -9,7 +9,7 @@ interface IProps {
   isRequired: boolean;
 }
 
-const MyDataField = (props: IProps) => {
+const MyDateField = (props: IProps) => {
   const {property, alias, register, errors, isRequired} = props;
   return (
     <div>
@@ -30,4 +30,4 @@ const MyDataField = (props: IProps) => {
 }
 
 
-export default MyDataField
+export default MyDateField

@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import "../../../styles/style.scss"
 import defaultPhoto from "../../../styles/photo.png"
 
+
 const Photo = () => {
     const [photo, setPhoto] = useState<string>(defaultPhoto)
 

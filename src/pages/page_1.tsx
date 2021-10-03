@@ -44,7 +44,7 @@ const Page1 = () => {
                     <MyDateField property="birthDate" alias="Дата рождения" register={register} errors={errors} isRequired={true} />
                 </div>
                 <div className="flex_items">
-                    <Select property="gender" alias="Пол" register={register} errors={errors} options={genders} />
+                    <Select property="gender" alias="Пол" register={register} errors={errors} options={genders} isRequired={true}/>
                     <MyInput property="citizen" alias="Гражданство" register={register} errors={errors} isRequired={true} />
                 </div>
                 <div className="flex_items">

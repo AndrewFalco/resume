@@ -81,3 +81,53 @@ export const genders = [
     label: 'Жен'
   }
 ]
+
+export const education = [
+  {
+    value: 'mid',
+    label: 'Среднее общее'
+  },
+  {
+    value: 'mid_pro',
+    label: 'Среднее профессиональное'
+  },
+  {
+    value: 'high1',
+    label: 'Высшее I степени (бакалавриат)'
+  },
+  {
+    value: 'high2',
+    label: 'Высшее II степени (специалитет, магистратура)'
+  },
+  {
+    value: 'high3',
+    label: 'Высшее III степени (высшая квалификация)'
+  }
+]
+
+export const langLevel = [
+  {
+    value: 'A1',
+    label: 'A1'
+  },
+  {
+    value: 'A2',
+    label: 'A2'
+  },
+  {
+    value: 'B1',
+    label: 'B1'
+  },
+  {
+    value: 'B2',
+    label: 'B2'
+  },
+  {
+    value: 'C1',
+    label: 'C1'
+  },
+  {
+    value: 'C2',
+    label: 'C2'
+  },
+]

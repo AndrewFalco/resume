@@ -7,10 +7,11 @@ interface IProps {
     register: any;
     errors: any;
     options: any;
+    isRequired?: boolean;
 }
 
 const Select = (props: IProps) => {
-    const {property, alias, register, errors, options} = props;
+    const {property, alias, register, errors, options, isRequired} = props;
     const [currency, setCurrency] = React.useState();
 
     const handleChange = (event: any) => {
@@ -26,6 +27,7 @@ const Select = (props: IProps) => {
                 value={currency}
                 onChange={handleChange}
                 margin='dense'
+                required={isRequired}
                 {...register(property)}
             >
                 {options.map((option: any) => (

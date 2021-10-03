@@ -32,8 +32,8 @@ export const SchoolSch = yup.object().shape({
 export const EduSch = yup.object().shape({
     level: yup.string().required(),
     language: yup.string().required(),
-    otherLanguage: yup.array().of(LangSch).optional(),
-    placeOfStudy: yup.array().of(SchoolSch).required(),
+    // otherLanguage: yup.array().of(LangSch).optional(),
+    // placeOfStudy: yup.array().of(SchoolSch).required(),
 })
 
 export const MainSch = yup.object().shape({

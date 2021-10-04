@@ -4,11 +4,15 @@ import Button from '@mui/material/Button'
 
 import "../../../styles/style.scss"
 import defaultPhoto from "../../../styles/photo.png"
+import { render } from '@testing-library/react'
 
+interface IProps{
+    setPh: any;
+}
 
-const Photo = () => {
+const Photo = (props: IProps) => {
     const [photo, setPhoto] = useState<string>(defaultPhoto)
-
+    const {setPh} = props;
     const onSelectFile = (e: any) =>{
         e.preventDefault()
 
@@ -17,7 +21,8 @@ const Photo = () => {
 
         reader.onloadend = () => { 
             if (typeof(reader.result) == 'string'){           
-                setPhoto(reader.result)
+                setPhoto(reader.result);
+                setPh(reader.result);
             }
         }
         reader.readAsDataURL(file)        

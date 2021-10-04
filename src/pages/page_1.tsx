@@ -14,13 +14,14 @@ import { useHistory } from 'react-router'
 import Select from '../components/UI/Select'
 import { currencies, defaultRes, genders } from '../constants'
 import Resume from '../store/Resume'
-import { v4 as uuid} from 'uuid'
 
 const Page1 = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<IResume>({
         resolver: yupResolver<yup.AnyObjectSchema>(MainSch),
         mode: "onBlur"
     });
+
+    const [photo, setPh] = useState();
 
     useEffect(() => {
         Resume.updateProperty(defaultRes());
@@ -29,7 +30,9 @@ const Page1 = () => {
 
     const onSubmit = (data: any) => {
         //alert(JSON.stringify(data));
-        Resume.updateProperty(data);
+        const newData = {...data};
+        newData.photo = photo;
+        Resume.updateProperty(newData);
         history.push('/page2')
     };
 
@@ -38,7 +41,7 @@ const Page1 = () => {
             <h1>Step 1</h1>
             <div className="flex_form">
                 <div className="flex_items">
-                    <Photo />
+                    <Photo setPh={setPh}/>
                     <div>
                         <MyInput property="name" alias="Имя" register={register} errors={errors} isRequired={true} />
                         <MyInput property="lastName" alias="Фамилия" register={register} errors={errors} isRequired={true} />

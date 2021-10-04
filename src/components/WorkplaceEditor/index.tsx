@@ -62,8 +62,8 @@ const WorkplaceEditor = (props: IProps) => {
                 </div>
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleSubmit(onSubmit)}>Subscribe</Button>
+                <Button onClick={handleClose}>Отмена</Button>
+                <Button onClick={handleSubmit(onSubmit)}>Ок</Button>
             </DialogActions>
         </Dialog>
     )

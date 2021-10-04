@@ -12,6 +12,7 @@ import Select from '../components/UI/Select';
 import { education } from '../constants';
 import { EduSch } from '../schemas';
 import Resume from '../store/Resume';
+import Resumes from '../store/Resumes';
 
 import "../styles/style.scss"
 
@@ -56,7 +57,8 @@ const Page3 = () => {
         newProps.otherLanguage = languages;
         newProps.placeOfStudy = institutes;
         Resume.updateProperty({education: [newProps]});
-        Resume.addResume();
+        Resumes.addResume(Resume.resume);
+        Resumes.changeDone();
         history.push('/')
     };
 

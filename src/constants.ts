@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { IResume } from "./types";
 
-export const defaultRes: IResume = {
+export const defaultRes = () => {return{
   id: uuid(),
   name: "",
   lastName: "",
@@ -28,12 +28,12 @@ export const defaultRes: IResume = {
   ],
   education: [
     {
-      level: "",
+      level: "high1",
       language: "",
       otherLanguage: [
         {
           language: "",
-          level: "",
+          level: "A1",
         },
       ],
       placeOfStudy: [
@@ -46,7 +46,7 @@ export const defaultRes: IResume = {
       ],
     },
   ],
-};
+}};
 
 export const currencies = [
   {

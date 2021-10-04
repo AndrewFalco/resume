@@ -7,6 +7,7 @@ import * as yup from 'yup'
 import WorkplaceEditor from '../components/WorkplaceEditor';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Page2Sch } from '../schemas';
+import Resume from '../store/Resume';
 
 import "../styles/style.scss"
 
@@ -38,8 +39,11 @@ const Page2 = () => {
     const history = useHistory();
 
     const onSubmit = (data: any) => {
-        alert(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         if(value==='yes' && wp.length===0) return;
+        const newProps = {...data};
+        newProps.workplace = wp;
+        Resume.updateProperty(newProps);
         history.push('/page3')
     };
 

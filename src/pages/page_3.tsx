@@ -11,6 +11,7 @@ import MyInput from '../components/UI/MyInput';
 import Select from '../components/UI/Select';
 import { education } from '../constants';
 import { EduSch } from '../schemas';
+import Resume from '../store/Resume';
 
 import "../styles/style.scss"
 
@@ -50,8 +51,13 @@ const Page3 = () => {
     }
 
     const onSubmit = (data: any) => {
-        alert(JSON.stringify(data));
-        history.push('/page3')
+        //console.log(JSON.stringify(data));
+        const newProps = {...data};
+        newProps.otherLanguage = languages;
+        newProps.placeOfStudy = institutes;
+        Resume.updateProperty({education: [newProps]});
+        Resume.addResume();
+        history.push('/')
     };
 
     return (

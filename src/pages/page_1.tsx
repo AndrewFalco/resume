@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { MainSch } from '../schemas'
@@ -12,7 +12,9 @@ import MyTextField from '../components/UI/MyTextField'
 import MyDateField from '../components/UI/MyDateField'
 import { useHistory } from 'react-router'
 import Select from '../components/UI/Select'
-import { currencies, genders } from '../constants'
+import { currencies, defaultRes, genders } from '../constants'
+import Resume from '../store/Resume'
+import { v4 as uuid} from 'uuid'
 
 const Page1 = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<IResume>({
@@ -20,10 +22,14 @@ const Page1 = () => {
         mode: "onBlur"
     });
 
+    useEffect(() => {
+        Resume.updateProperty(defaultRes());
+    }, [])
     const history = useHistory();
 
     const onSubmit = (data: any) => {
-        alert(JSON.stringify(data));
+        //alert(JSON.stringify(data));
+        Resume.updateProperty(data);
         history.push('/page2')
     };
 

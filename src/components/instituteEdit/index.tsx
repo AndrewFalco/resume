@@ -28,7 +28,6 @@ const InstituteEditor = (props: IProps) => {
     });
 
     const onSubmit = (data: any) =>{
-        console.log(data);
         const newWP = {...data};
         newWP.id = uuid();
         inst.push(newWP);

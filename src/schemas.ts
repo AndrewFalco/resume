@@ -14,7 +14,7 @@ export const WpSch = yup.object().shape({
 });
 
 export const Page2Sch = yup.object().shape({
-  hasExp: yup.string().required(),
+  hasExp: yup.boolean().required(),
 })
 
 export const LangSch = yup.object().shape({

@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControlLabel } from '@mui/material';
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControlLabel } from '@mui/material';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { WpSch } from '../../schemas';
@@ -36,7 +36,6 @@ const WorkplaceEditor = (props: IProps) => {
     };
 
     const onSubmit = (data: any) =>{
-        console.log(data);
         const newWP = {...data};
         newWP.toPresent = checked;
         newWP.id = uuid();

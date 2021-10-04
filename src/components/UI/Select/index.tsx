@@ -31,7 +31,7 @@ const Select = (props: IProps) => {
                 {...register(property)}
             >
                 {options.map((option: any) => (
-                    <MenuItem key={option.value} value={option.value}>
+                    <MenuItem key={option.value} value={option.label}>
                         {option.label}
                     </MenuItem>
                 ))}

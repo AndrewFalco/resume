@@ -52,13 +52,11 @@ const Page3 = () => {
     }
 
     const onSubmit = (data: any) => {
-        //console.log(JSON.stringify(data));
         const newProps = {...data};
         newProps.otherLanguage = languages;
         newProps.placeOfStudy = institutes;
         Resume.updateProperty({education: [newProps]});
         Resumes.addResume(Resume.resume);
-        Resumes.changeDone();
         history.push('/')
     };
 

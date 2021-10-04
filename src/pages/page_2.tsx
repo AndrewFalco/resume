@@ -27,7 +27,7 @@ const Page2 = () => {
         mode: "onBlur"
     });
 
-    const [value, setValue] = useState('no');
+    const [value, setValue] = useState(false);
     const [open, setOpen] = useState(false);
     const [wp, setWp] = useState<IWP[]>([]);
 
@@ -39,8 +39,7 @@ const Page2 = () => {
     const history = useHistory();
 
     const onSubmit = (data: any) => {
-        //console.log(JSON.stringify(data));
-        if(value==='yes' && wp.length===0) return;
+        if(value && wp.length===0) return;
         const newProps = {...data};
         newProps.workplace = wp;
         Resume.updateProperty(newProps);
@@ -63,14 +62,14 @@ const Page2 = () => {
                     value={value}
                     onChange={handleChange}
                 >
-                    <FormControlLabel value="yes" control={<Radio />} label="Да" {...register("hasExp")} />
-                    <FormControlLabel value="no" control={<Radio />} label="Нет" {...register("hasExp")} />
+                    <FormControlLabel value={true} control={<Radio />} label="Да" {...register("hasExp")} />
+                    <FormControlLabel value={false} control={<Radio />} label="Нет" {...register("hasExp")} />
                 </RadioGroup>
             </FormControl>
-            {value==="yes" &&  <Button variant="contained" color="success" onClick={()=>setOpen(true)}>Добавить место</Button>}
+            {value &&  <Button variant="contained" color="success" onClick={()=>setOpen(true)}>Добавить место</Button>}
             <WorkplaceEditor wp={wp} setWp={setWp} setOpen={setOpen} open={open}/>
             {
-                value === "yes" ? 
+                value ? 
                     <div className="flex_items">
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             {wp.map((value) => (

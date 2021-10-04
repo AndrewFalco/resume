@@ -3,7 +3,6 @@ import { action, makeAutoObservable, observable } from "mobx"
 
 class Resumes {
     @observable resumes: IResume[]=[];
-    @observable isDone = true;
 
     constructor() {
         makeAutoObservable(this)
@@ -15,10 +14,6 @@ class Resumes {
 
     @action removeResume(id: string){
         this.resumes = this.resumes.filter(el=> el.id !== id);
-    }
-
-    @action changeDone(){
-        this.isDone = !this.isDone;
     }
 }
 

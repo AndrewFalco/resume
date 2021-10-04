@@ -1,37 +1,45 @@
 import { Button, List, ListItem, ListItemText } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { IResume } from './types';
 import Resumes from './store/Resumes'
 import { observer } from 'mobx-react-lite';
+import Preview from './components/Preview';
+import { defaultRes } from './constants';
 
 const App = observer(() => {
 
+  const [open, setOpen] = useState(false);
+  const [res, setRes] = useState<IResume>(defaultRes());
   const history = useHistory();
 
-  const rmResume = (e: any) => {
-    Resumes.removeResume(e.target.id);
-  }
-
   const openStep1 = () =>{
-    Resumes.changeDone();
     history.push('/page1');
   }
 
+  const getPreview = (id: string) =>{
+    const selectRes = Resumes.resumes.find(el=> el.id === id);
+    selectRes && setRes(selectRes);
+    setOpen(true);
+  }
 
   return (
     <div className="App">
-      {Resumes.isDone && 
+      { 
       <div>
         <Button variant="contained" color="success" onClick={openStep1}>Создать резюме</Button>
         <div className="flex_items">
           <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'grey' }}>
             {Resumes.resumes.map((value: IResume) => (
               <ListItem
+                className="my_list"
                 key={value.id}
                 disableGutters
                 secondaryAction={
-                  <Button variant="contained" color="error" id={value.id} onClick={rmResume}>X</Button>
+                  <div className="flex_items">
+                    <Button variant="outlined" color="success" onClick={() => { getPreview(value.id) }}>&#x1f441;</Button>
+                    <Button variant="contained" color="error" onClick={() => { Resumes.removeResume(value.id) }}>&#128465;</Button>
+                  </div>
                 }
               >
                 <ListItemText primary={`${value.name} `} />
@@ -39,6 +47,7 @@ const App = observer(() => {
             ))}
           </List>
         </div>
+        <Preview open={open} setOpen={setOpen} resume={res}/>
       </div>
       }
     </div>

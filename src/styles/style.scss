@@ -52,7 +52,6 @@ body {
   
   p::before {
     display: inline;
-    content: "⚠ ";
   }
   
   input {
@@ -87,7 +86,6 @@ body {
     padding: 20px;
     font-size: 16px;
     font-weight: 100;
-    letter-spacing: 10px;
     border-radius: 10px;
     max-width: 15vw;
   }
@@ -130,6 +128,7 @@ body {
     text-transform: uppercase;
     padding: 10px 20px;
     border-radius: 7px;
+    margin: 5px;
   }
   
   pre {
@@ -166,4 +165,13 @@ body {
     border: 1px solid #6516bf;
     margin: 5px;
     padding: 5px;
+  }
+
+  .my_list{
+    border:1px solid rgb(79, 98, 148);
+    margin-left: 15px;
+    margin-top: 5px;
+    padding: 2px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
   }

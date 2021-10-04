@@ -1,3 +1,8 @@
+# Краткое описание процесса
+
+На главной нажимаем кнопку "Создать резюме". Проходим все этапы последовательно. На последнем этапе 
+создается запись с резюме и переход на главную. У созданной записи есть  2 кнопки: предпросмотр и удаление.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
